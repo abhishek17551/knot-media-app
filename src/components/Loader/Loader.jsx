@@ -17,5 +17,6 @@ const Loader = () => {
             />
         </div>
     )
-
 }
+
+export {Loader}
