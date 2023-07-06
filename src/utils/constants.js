@@ -21,3 +21,13 @@ export const actionTypes = {
     SEARCH_USER: "SEARCH_USER",
     UPDATE_FOLLOW_USER: "UPDATE_FOLLOW_USER",
 }
+
+export const styles = {
+    position : 'absolute',
+    left : '50%',
+    top : '50%',
+    transform : 'translate(-50%, -50%)',
+    boxShadow : 25,
+    bgcolor : 'background.paper',
+    p : '3.5'
+}
