@@ -170,6 +170,17 @@ export const UserProvider = ({children}) => {
         }
     }
 
+    const searchedUsers = userState.searchInput && userState.users.filter((user) => 
+            user.username.toLowerCase().includes(userState.searchInput.toLowerCase())
+        );
+
+    const handleButtonsClick = (delay,callback,...args) => {
+        clearTimeout(timerId.current);
+        timerId.current = setTimeout(() => {
+            callback(...args)
+        }, delay);
+    }
+
     useEffect(() => {
         getAllUsers();
         if(token) {
@@ -183,6 +194,7 @@ export const UserProvider = ({children}) => {
                 userState,
                 userDispatch,
                 loading,
+                searchedUsers,
                 getUserByUsername,
                 followUserHandler,
                 unfollowUserHandler,
@@ -190,6 +202,7 @@ export const UserProvider = ({children}) => {
                 addBookmarkHandler,
                 removeBookmarkHandler,
                 postAlreadyInBookmarks,
+                handleButtonsClick
             }}
         >
             {children}
