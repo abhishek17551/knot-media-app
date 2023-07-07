@@ -7,7 +7,7 @@ function Signup() {
   const navigate = useNavigate();
   const { signupHandler } = useAuth();
 
-  const [signupDetails,setSignupDetails] = useState*{
+  const [signupDetails,setSignupDetails] = useState({
     firstName: "",
     lastName: "",
     username: "",
@@ -15,7 +15,7 @@ function Signup() {
     confirmPassword: "",
     pwdMatch: true,
     show: { pwd: false, confirmPwd: false },
-  }
+  })
 
   document.title = "Signup | Knot"
 
@@ -49,7 +49,7 @@ function Signup() {
       </div>
 
       <h2 className="text-center font-bold text-2xl">SignUp</h2>
-      <p className="text-center text-sm text-sm">Join the Knot, Unlock New Connections...</p>
+      <p className="text-center text-sm my-4">Join the Knot, Unlock New Connections...</p>
 
       <form onSubmit={signupFormSubmitHandler} className='flex flex-col gap-4'>
         <div className='flex flex-row gap-3 mt-4'>
