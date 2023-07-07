@@ -6,4 +6,4 @@ function SinglePost() {
   )
 }
 
-export default SinglePost
+export {SinglePost} 

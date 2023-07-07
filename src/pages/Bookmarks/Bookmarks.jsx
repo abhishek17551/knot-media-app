@@ -6,4 +6,4 @@ function Bookmarks() {
   )
 }
 
-export default Bookmarks
+export {Bookmarks} 
