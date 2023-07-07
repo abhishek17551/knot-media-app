@@ -26,20 +26,24 @@ const SuggestedUsers = () => {
                 <>
                 {
                     filteredUsers.length && (
-                        <div >
-                            <div>
+                        <div className="flex flex-col overflow-hidden justify-start px-4 py-3 gap-4 m-4 mt-0 rounded-md max-h-[325px] sticky top-[95px] bg-primaryLight dark:bg-primaryDark">
+                            <div className="text-lg font-bold tracking-wide">
                                 Whom To Follow?
                             </div>
 
                             {filteredUsers?.map((user) => (
-                                <div key={user._id}>
+                                <div key={user._id} className="flex items-center gap-2 cursor-pointer">
                                     <UserAvatar user={user} className="h-9 w-9"/>
-                                    <div>
+                                    <div 
+                                        className="flex flex-col grow "
+                                        onClick={() => navigate(`/profile/${user?.username}`)}>
                                         <span className="text-sm">  {user.firstName + " " + user.lastName} </span>
-                                        <span className="className="text-sm> @{user.username} </span>
+                                        <span className="text-sm text-[grey]"> @{user.username} </span>
                                     </div>
 
-                                    <PrimaryButton onClick={() => handleButtonsClick(600,followUserHandler,user?._id)}>
+                                    <PrimaryButton
+                                        className="py-1 px-2 rounded-md"
+                                        onClick={() => handleButtonsClick(600,followUserHandler,user?._id)}>
                                         Follow
                                     </PrimaryButton>
                                 </div>
@@ -53,3 +57,5 @@ const SuggestedUsers = () => {
         </>
     )
 }
+
+export {SuggestedUsers}
