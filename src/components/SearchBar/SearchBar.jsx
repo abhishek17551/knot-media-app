@@ -1,6 +1,7 @@
 import { userUsers } from "../../contexts/userContext"
 import { actionTypes } from "../../utils/constants";
 import { FiSearch } from '../../utils/icons'
+import { SearchedUsersModal } from "../SearchedUsersModal/SearchedUsersModal";
 
 const SearchBar = () => {
     const {userState : {searchInput}, userDispatch} = userUsers();
@@ -21,7 +22,7 @@ const SearchBar = () => {
             {
                 searchInput && (
                     <div>
-                        {/* Searched users here */}
+                       <SearchedUsersModal/>
                     </div>
                 )
             }
