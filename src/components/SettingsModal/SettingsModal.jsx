@@ -8,10 +8,12 @@ const SettingsModal = ({ setShowSettingsModal }) => {
     const {darkTheme,setDarkTheme} = useTheme();
 
     return(
-        <div style={styles}>
+        <div style={styles}
+            className="flex flex-col rounded-md shadow-lg p-4 border border-primaryDark bg-primaryLight dark:bg-primaryDark dark:text-primaryLight  "
+        >
             <>
                 <button
-                    className="flex items-center justify-center text-left cursor-pointer rounded-md"
+                    className="flex items-center justify-center text-left cursor-pointer rounded-md hover:bg-primaryLight dark:hover:bg-secondaryDark py-2 px-4"
                     onClick={() => {
                         setDarkTheme(!darkTheme);
                         setShowSettingsModal(false)
@@ -31,7 +33,7 @@ const SettingsModal = ({ setShowSettingsModal }) => {
                 </button>
 
                 <button
-                    className="flex items-center justify-center text-left cursor-pointer rounded-md"
+                    className="flex items-center justify-center text-left cursor-pointer rounded-md py-2 px-4 text-red hover:bg-primaryLight dark:hover:bg-secondaryDark py-2 px-4"
                     onClick={() => {
                         logoutHandler();
                         setShowSettingsModal(false)
