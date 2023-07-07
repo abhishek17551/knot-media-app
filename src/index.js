@@ -4,11 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { makeServer } from './server';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './contexts/authContext';
+import { ThemeProvider } from '@emotion/react';
+import { UserProvider } from './contexts/userContext';
+import { PostProvider } from './contexts/postContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <AuthProvider>
+        <ThemeProvider>
+          <UserProvider>
+            <PostProvider>
+              <App />
+            </PostProvider>
+          </UserProvider>
+        </ThemeProvider>
+      </AuthProvider>
+      
+    </Router>
   </React.StrictMode>
 );
 
