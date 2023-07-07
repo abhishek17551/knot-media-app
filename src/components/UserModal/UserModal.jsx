@@ -12,21 +12,23 @@ const UserModal = ({usersListModal,setUsersListModal}) => {
             <div className="flex justify-between items-center mb-4.5">
                 <div className="text-xl font-semibold">{title}</div>
                 <button
+                    className="h-min w-min p-1.25 hover:rounded-full hover:bg-primaryDark hover:text-primaryLight dark:hover:text-primaryDark dark:hover:bg-primaryLight "
                     onClick={() => setUsersListModal(false)}
                 >
                     <FaTimes/>
                 </button>
             </div>
 
-            <div className="flex flex-col justify-center gap-4">
+            <div>
                 {
                     list?.length ? (
                         list?.map((user) => (
                             <div
-                            key={user?._id}
-                            onClick={() => {
-                                navigate(`/profile/${user?.username}`);
-                                setUsersListModal({show:false, title:"", list:[]})
+                                className="flex gap-2 cursor-pointer"
+                                key={user?._id}
+                                onClick={() => {
+                                    navigate(`/profile/${user?.username}`);
+                                    setUsersListModal({show:false, title:"", list:[]})
                             }}
                             >
                                 <UserAvatar
