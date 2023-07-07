@@ -31,3 +31,8 @@ export const styles = {
     bgcolor : 'background.paper',
     p : '3.5'
 }
+
+export const guestUserLoginDetails = {
+    username : "Viraj Anand",
+    password : "virajanand.296"
+}
