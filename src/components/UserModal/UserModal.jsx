@@ -19,7 +19,7 @@ const UserModal = ({usersListModal,setUsersListModal}) => {
                 </button>
             </div>
 
-            <div>
+            <div className="flex flex-col justify-center gap-4">
                 {
                     list?.length ? (
                         list?.map((user) => (
@@ -35,9 +35,9 @@ const UserModal = ({usersListModal,setUsersListModal}) => {
                                     user={user}
                                     className="h-9 w-9"
                                 />
-                                <div>
+                                <div className="flex flex-col ">
                                     <span>{user?.firstName + " " + user?.lastName}</span>
-                                    <span>@{user?.username}</span>
+                                    <span className="text-sm text-[grey]">@{user?.username}</span>
                                 </div>
                             </div>
                         ))
