@@ -1,0 +1,55 @@
+import { useRef, useState } from "react";
+import {FaArrowDown, FaArrowUp, FaFilter, FaFire } from '../../utils/icons'
+import { usePosts } from "../../contexts/postContext"
+import { actionTypes } from "../../utils/constants";
+
+const SortBar = () => {
+    const { postState: {filterType}, postDispatch} = usePosts();
+    const modalRef = useRef();
+    const {FILTER_POSTS} = actionTypes;
+
+    const [showSortModal,setShowSortModal] = useState(false)
+
+    return (
+        <div>
+            <h3>{filterType} Posts</h3>
+
+            <div ref={modalRef}>
+                <button onClick={() => setShowSortModal((prev) => !prev)}>
+                    <FaFilter/>
+                </button>
+                {
+                    showSortModal && (
+                        <div>
+                            <button onClick={() => {
+                                postDispatch({type: FILTER_POSTS, payload: "Trending"})
+                                setShowSortModal((prev) => !prev)
+                            }}>
+                                <FaFire/>
+                                Trending
+                            </button>
+
+                            <button onClick={() => {
+                                postDispatch({type: FILTER_POSTS, payload: "Latest"})
+                                setShowSortModal((prev) => !prev)
+                            }}>
+                                <FaArrowUp/>
+                                Latest
+                            </button>
+
+                            <button onClick={() => {
+                                postDispatch({type: FILTER_POSTS, payload: "Oldest"})
+                                setShowSortModal((prev) => !prev)
+                            }}>
+                                <FaArrowDown/>
+                                Oldest
+                            </button>
+                        </div>
+                    )
+                }
+            </div>
+        </div>
+    )
+}
+
+export {SortBar}
