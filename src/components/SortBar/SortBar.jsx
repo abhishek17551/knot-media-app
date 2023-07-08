@@ -15,8 +15,8 @@ const SortBar = () => {
             <h3>{filterType} Posts</h3>
 
             <div ref={modalRef} className="relative">
-                <button onClick={() => setShowSortModal((prev) => !prev)}>
-                    <FaFilter/>
+                <button onClick={() => setShowSortModal((prev) => !prev)} className="text-lg p-1 px-2">
+                    <FaFilter className="hover:scale-110"/>
                 </button>
                 {
                     showSortModal && (
@@ -24,24 +24,42 @@ const SortBar = () => {
                             <button onClick={() => {
                                 postDispatch({type: FILTER_POSTS, payload: "Trending"})
                                 setShowSortModal((prev) => !prev)
-                            }}>
-                                <FaFire/>
+                            }}
+                            style={{
+                                backgroundColor : filterType === "Trending" ? "#99c6d4" : "#d1fae5",
+                                fontWeight : filterType === "Trending" && "bold",  
+                            }}
+                            className="flex justify-center rounded-md w-full py-1 px-3 dark:text-primaryDark"
+                            >
+                                <FaFire className="text-xl pr-2"/>
                                 Trending
                             </button>
 
                             <button onClick={() => {
                                 postDispatch({type: FILTER_POSTS, payload: "Latest"})
                                 setShowSortModal((prev) => !prev)
-                            }}>
-                                <FaArrowUp/>
+                            }}
+                            style={{
+                                backgroundColor : filterType === "Latest" ? "#99c6d4" : "#d1fae5",
+                                fontWeight : filterType === "Latest" && "bold",  
+                            }}
+                            className="flex justify-center rounded-md w-full py-1 px-3 dark:text-primaryDark"
+                            >
+                                <FaArrowUp className="text-xl pr-2"/>
                                 Latest
                             </button>
 
                             <button onClick={() => {
                                 postDispatch({type: FILTER_POSTS, payload: "Oldest"})
                                 setShowSortModal((prev) => !prev)
-                            }}>
-                                <FaArrowDown/>
+                            }}
+                            style={{
+                                backgroundColor : filterType === "Oldest" ? "#99c6d4" : "#d1fae5",
+                                fontWeight : filterType === "Oldest" && "bold",  
+                            }}
+                            className="flex justify-center rounded-md w-full py-1 px-3 dark:text-primaryDark"
+                            >
+                                <FaArrowDown className="text-xl pr-2" />
                                 Oldest
                             </button>
                         </div>
