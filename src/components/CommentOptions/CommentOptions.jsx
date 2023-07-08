@@ -1,11 +1,11 @@
-const { useState } = require("react");
-const { useAuth } = require("../../contexts/authContext");
-const { usePosts } = require("../../contexts/postContext");
-const { userUsers } = require("../../contexts/userContext");
-const { FaEdit, FaTrash, FaUserPlus } = require("react-icons/fa");
-const { RiUserUnfollowFill } = require("react-icons/ri");
-const { Modal } = require("@mui/material");
-const { CommentModal } = require("../CommentModal/CommentModal");
+import { useState } from "react";
+import { useAuth } from "../../contexts/authContext"
+import { usePosts } from "../../contexts/postContext"
+import { userUsers } from "../../contexts/userContext"
+import { FaEdit, FaTrash, FaUserPlus } from "react-icons/fa"
+import { RiUserUnfollowFill } from "react-icons/ri"
+import { Modal } from "@mui/material"
+import { CommentModal } from "../CommentModal/CommentModal"
 
 const CommentOptions = ({comment, postId, setShowOptions}) => {
     const {
