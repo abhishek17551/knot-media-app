@@ -23,7 +23,7 @@ const Sidebar = () => {
                 <li className="hidden sm:pb-2 sm:px-1 sm:block">
                     <Link to="/" className="flex items-center">
                         {/* logo image here */}
-                        <span>Knot-Media</span>
+                        <span className="font-semibold hidden text-2xl lg:inline">Knot-Media</span>
                     </Link>
                 </li>
 
@@ -31,6 +31,7 @@ const Sidebar = () => {
                     <NavLink 
                         to="/"
                         style={({isActive}) => (isActive ? getActiveStyle : undefined)}
+                        className="flex justify-center items-center p-2 w-max lg:py-1 lg:pl-2 lg:pr-4 hover:rounded-full hover:bg-primaryLighter dark:hover:bg-primaryLight dark:hover:text-darkBlack active:dark:text-darkBlack"
                     >
                         <MdHome/>
                         <span>Home</span>
@@ -41,6 +42,7 @@ const Sidebar = () => {
                     <NavLink 
                         to="/bookmarks"
                         style={({isActive}) => (isActive ? getActiveStyle : undefined)}
+                        className="flex justify-center items-center p-2 w-max lg:py-1 lg:pl-2 lg:pr-4 hover:rounded-full hover:bg-primaryLighter dark:hover:bg-primaryLight dark:hover:text-darkBlack active:dark:text-darkBlack"
                     >
                         <MdBookmarks/>
                         <span>Bookmarks</span>
@@ -51,6 +53,7 @@ const Sidebar = () => {
                     <NavLink 
                         to="/explore"
                         style={({isActive}) => (isActive ? getActiveStyle : undefined)}
+                        className="flex justify-center items-center p-2 w-max lg:py-1 lg:pl-2 lg:pr-4 hover:rounded-full hover:bg-primaryLighter dark:hover:bg-primaryLight dark:hover:text-darkBlack active:dark:text-darkBlack"
                     >
                         <MdExplore/>
                         <span>Explore</span>
@@ -61,6 +64,7 @@ const Sidebar = () => {
                     <NavLink 
                         to={`/profile/${currentUser?.username}`}
                         style={({isActive}) => (isActive ? getActiveStyle : undefined)}
+                        className="flex justify-center items-center p-2 w-max lg:py-1 lg:pl-2 lg:pr-4 hover:rounded-full hover:bg-primaryLighter dark:hover:bg-primaryLight dark:hover:text-darkBlack active:dark:text-darkBlack"
                     >
                         <MdPerson/>
                         <span>Profile</span>
@@ -68,9 +72,9 @@ const Sidebar = () => {
                 </li>
 
                 <li onClick={() => showPostModal(true)} className="cursor-pointer w-max px-0 sm:flex sm:px-1 lg:p-0 lg:w-full">
-                    <HiPlusCircle/>
-                    <PrimaryButton>
-                        <HiPlusCircle/>
+                    <HiPlusCircle className="text-[2.75rem] px-2 lg:hidden hover:rounded-full hover:bg-primaryLighter dark:hover:bg-primaryLight dark:hover:text-darkBlack "/>
+                    <PrimaryButton className="justify-center items-center rounded-lg hidden w-max mx-2  lf:w-full py-1 pl-2 pr-4  lg:flex">
+                        <HiPlusCircle className="text-3xl px-0.5 g:pr-2"/>
                         <span>New Post</span>
                     </PrimaryButton>
                 </li>
@@ -81,13 +85,13 @@ const Sidebar = () => {
             </ul>
 
             <ul className="hidden pr-2 sm:flex ">
-                <li onClick={() => setShowSettingsModal(true)} className="flex items-center justify-center gap-2  cursor-pointer p-3 w-max ">
-                    <UserAvatar user={currentUser}/>
+                <li onClick={() => setShowSettingsModal(true)} className="flex items-center justify-center gap-2 cursor-pointer p-3 w-max ">
+                    <UserAvatar user={currentUser} className="h-10 w-10"/>
                     <div className="hidden text-sm lg:inline">
-                        <p>{currentUser?.firstName + " " + currentUser?.lastName}</p>
-                        <p>@{currentUser?.username}</p>
+                        <p className="font-bold">{currentUser?.firstName + " " + currentUser?.lastName}</p>
+                        <p className="font-normal">@{currentUser?.username}</p>
                     </div>
-                    <HiDotsHorizontal title="Settings Options"/>
+                    <HiDotsHorizontal title="Settings Options" className="ml-4 hidden lg:inline hover:scale-105"/>
                 </li>
             </ul>
 
