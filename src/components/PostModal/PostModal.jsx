@@ -72,7 +72,7 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
             style={styles}
             className="grid grid-cols-[2.5rem_1fr] gap-2 items-start text-sm px-4 py-3 w-[90%] cursor-text shadow-dark shadow-lg rounded-md border bg-primaryLighter border-primaryDark dark:bg-primaryDark  sm:w-[60%] xl:w-[45%]"
         >
-            <UserAvatar user={currentUser}/>
+            <UserAvatar user={currentUser} className="h-10 w-10"/>
             <form onSubmit={submitHandler} className="flex flex-col gap-4">
                 <div className="w-full break-all outline-none mt-1.5 bg-primaryLighter dark:bg-primaryDark
 ">
@@ -81,6 +81,7 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
                     ref={postRef}
                     placeholder="What are your thoughts brewing???"
                     onChange={(e) => setContent((prev) => ({ ...prev, content: e.target.value })) }
+                    className="w-full break-all outline-none resize-none h-[6rem] bg-primaryLighter dark:bg-primaryDark dark:text-primaryLight"
                 />
 
                 {
@@ -95,6 +96,7 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
                                     <img
                                         src={media ? URL.createObjectURL(media) : content?.mediaURL}
                                         alt={content?.mediaAlt || media.name.split(".")[0]} 
+                                        className="w-full max-h-[350px] rounded-md object-cover"
                                     />
                                 )
                             }
@@ -102,6 +104,7 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
                             <button
                                 type="button"
                                 onClick={() => content?.mediaURL ? setContent((prev) => ({...prev,mediaURL:null,mediaAlt:""})) : setMedia(null)}
+                                className="absolute top-1.5 left-2 text-lg"
                             >
                                 <MdCancel/>
                             </button>
@@ -114,17 +117,17 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
 
                 <div className="flex justify-between gap-2">
                     <div className="flex justify-center items-center gap-3">
-                        <label htmlFor="media-input">
+                        <label htmlFor="media-input" className="cursor-pointer text-lg">
                             <input
                                 type="file"
                                 accept="image/*, video/*"
                                 onChange={(e) => setMedia(e.target.files[0])}
                             />
-                            <MdOutlineAddPhotoAlternate title="Add Photo/Video/GIF"/>
+                            <MdOutlineAddPhotoAlternate title="Add Photo/Video/GIF" className="text-xl scale-110 hover:scale-125 dark:text-primaryLight"/>
                         </label>
 
                         <label htmlFor="emojis" onClick={() => setShowEmojiPicker((prev) => !prev)}>
-                            <MdInsertEmoticon title="Add Emojis"/>
+                            <MdInsertEmoticon title="Add Emojis" className="text-xl scale-110 hover:scale-125 dark:text-primaryLight"/>
                         </label>
                     </div>
 
@@ -132,6 +135,7 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
                         <PrimaryButton
                             type="submit"
                             disabled={!content?.content?.trim() && !media}
+                            className="py-1.5 px-5 rounded-md disabled:opacity-80 border-primaryLight"
                         >
                             {post ? "Save" : "Post"}
                         </PrimaryButton>
@@ -141,6 +145,7 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
                                 setShowPostModal((prev) => !prev);
                                 post && setShowOptions((prev) => !prev)
                             }}
+                            className="py-1 px-4 rounded-md border-none"
                         >
                             Cancel
                         </SecondaryButton>

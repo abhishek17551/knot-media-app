@@ -14,3 +14,5 @@ const uploadMedia = (file) => {
         .catch((error) => console.error(error))
     )
 }
+
+export { uploadMedia}
