@@ -9,6 +9,7 @@ import {  MdCancel, MdInsertEmoticon, MdOutlineAddPhotoAlternate } from '../../u
 import { PrimaryButton, SecondaryButton } from "../Button/Button";
 import { Modal } from "@mui/material";
 import { Picker } from "emoji-mart";
+import { styles } from "../../utils/constants";
 
 const PostModal = ({post, setShowPostModal, setShowOptions}) => {
     const {darkTheme} = useTheme();
@@ -67,10 +68,14 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
     }
 
     return (
-        <div>
+        <div
+            style={styles}
+            className="grid grid-cols-[2.5rem_1fr] gap-2 items-start text-sm px-4 py-3 w-[90%] cursor-text shadow-dark shadow-lg rounded-md border bg-primaryLighter border-primaryDark dark:bg-primaryDark  sm:w-[60%] xl:w-[45%]"
+        >
             <UserAvatar user={currentUser}/>
-            <form onSubmit={submitHandler}>
-                <div>
+            <form onSubmit={submitHandler} className="flex flex-col gap-4">
+                <div className="w-full break-all outline-none mt-1.5 bg-primaryLighter dark:bg-primaryDark
+">
                 <textarea 
                     value={content?.content}
                     ref={postRef}
@@ -80,10 +85,10 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
 
                 {
                     content?.mediaURL || media ? (
-                        <div>
+                        <div className="relative">
                             {
                                 content?.mediaURL?.split("/")[4] === "video" || media?.type?.includes("video") ? (
-                                    <video controls>
+                                    <video controls className="w-full h-auto rounded-md">
                                         <source src={media ? URL.createObjectURL(media) : content?.mediaURL} type="video/mp4"/>
                                     </video>
                                 ) : (
@@ -107,8 +112,8 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
                 }
                 </div>
 
-                <div>
-                    <div>
+                <div className="flex justify-between gap-2">
+                    <div className="flex justify-center items-center gap-3">
                         <label htmlFor="media-input">
                             <input
                                 type="file"
@@ -123,7 +128,7 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
                         </label>
                     </div>
 
-                    <div>
+                    <div className="flex gap-3">
                         <PrimaryButton
                             type="submit"
                             disabled={!content?.content?.trim() && !media}
@@ -144,7 +149,7 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
             </form>
 
             <Modal open={showEmojiPicker} onClose={() => setShowEmojiPicker(false)}>
-                <div>
+                <div  style={styles}>
                     <Picker
                         data={data}
                         navPosition="bottom"
