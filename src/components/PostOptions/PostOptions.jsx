@@ -29,7 +29,7 @@ const PostOptions = ({post, setShowOptions}) => {
     useEffect(() => {},[currentUser, users])
 
     return (
-        <div>
+        <div className="flex flex-col absolute right-1 top-7 w-max rounded-md shadow-lg border border-darkGrey bg-primaryLighter dark:bg-primaryDark ">
             {
                 username === currentUser.username ? (
                     <>
