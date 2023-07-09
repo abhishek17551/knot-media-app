@@ -68,8 +68,8 @@ const PostOptions = ({post, setShowOptions}) => {
                         onClick={(e) => {
                             e.stopPropagation();
                             userAlreadyFollowing ? 
-                            handleButtonsClick(500,followUserHandler,userToFollow?._id) :
-                            handleButtonsClick(500,unfollowUserHandler,userToFollow?._id) 
+                            handleButtonsClick(500,unfollowUserHandler,userToFollow?._id) :
+                            handleButtonsClick(500,followUserHandler,userToFollow?._id) 
                         }}
                     >
                         {
