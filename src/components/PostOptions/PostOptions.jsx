@@ -4,6 +4,8 @@ import { usePosts } from "../../contexts/postContext";
 import { userUsers } from "../../contexts/userContext";
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash, FaUserPlus, RiUserUnfollowFill } from '../../utils/icons'
+import { Modal } from "@mui/material";
+import { PostModal } from "../PostModal/PostModal";
 
 const PostOptions = ({post, setShowOptions}) => {
     const { currentUser } = useAuth();
@@ -81,6 +83,16 @@ const PostOptions = ({post, setShowOptions}) => {
                     </button>
                 )
             }
+
+            <Modal>
+                <>
+                    <PostModal
+                        post={post}
+                        setShowOptions={setShowOptions}
+                        setShowPostModal={setShowPostModal}
+                    />
+                </>
+            </Modal>
         </div>
     )
 }
