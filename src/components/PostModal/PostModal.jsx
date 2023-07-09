@@ -158,6 +158,16 @@ const PostModal = ({post, setShowPostModal, setShowOptions}) => {
                         emojiButtonSize={28.75}
                         maxFrequentRows={0}
                         theme={darkTheme ? "dark" : "light"}
+                        onEmojiSelect = {
+                            (emoji) => {
+                                setContent((prev) => ({
+                                    ...prev,
+                                    content : prev.content ? prev.content + emoji.native : emoji.native
+                                }))
+                                setShowEmojiPicker(false)
+                            }
+                        }
+
                     />
                 </div>
             </Modal>
