@@ -38,7 +38,9 @@ const PostOptions = ({post, setShowOptions}) => {
                         <button onClick={(e) => {
                             e.stopPropagation();
                             setShowPostModal(true)
-                        }}>
+                        }}
+                        className="flex items-center justify-center cursor-pointer rounded-md text-left py-2 px-4  hover:bg-primaryLight dark:hover:bg-secondaryDark "
+                        >
                             <FaEdit/>
                             Edit
                         </button>
@@ -55,6 +57,7 @@ const PostOptions = ({post, setShowOptions}) => {
                                 }
                                 setShowOptions((prev) => !prev)
                             }}
+                            className="flex items-center justify-center cursor-pointer rounded-md text-left text-red py-2 px-4  hover:bg-primaryLight dark:hover:bg-secondaryDark "
                         >
                             <FaTrash/>
                             Delete
