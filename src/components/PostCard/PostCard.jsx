@@ -44,12 +44,14 @@ const PostCard = ({post}) => {
                         <div onClick={(e) => {
                             e.stopPropagation();
                             navigate(`/profile/${postedByUser?.username}`)
-                        }}>
-                            <span>{postedByUser?.firstName + " " + postedByUser?.lastName}</span>
-                            <span>@{postedByUser?.username}</span>
+                        }}
+                        className="flex flex-col gap-0 2xl:flex-row 2xl:gap-1"
+                        >
+                            <span className="font-bold tracking-wide">{postedByUser?.firstName + " " + postedByUser?.lastName}</span>
+                            <span className="text-[grey]">@{postedByUser?.username}</span>
                         </div>
-                        <span></span>
-                        <div>
+                        <span className="text-[grey]">.</span>
+                        <div className="text-[grey]">
                             {getPostDate(post?.createdAt)}
                         </div>
                     </div>
@@ -60,6 +62,7 @@ const PostCard = ({post}) => {
                                 e.stopPropagation();
                                 setShowOptions((prev) => !prev)
                             }}
+                            className="cursor-pointer m-2 text-lg  hover:scale-105"
                         />
                         {
                             showOptions && (
@@ -79,11 +82,13 @@ const PostCard = ({post}) => {
                             src={post?.mediaURL}
                             alt={post?.mediaAlt}
                             onClick={() => navigate(`/post/${post?._id}`)}
+                            className="w-full h-auto rounded-md"
                         />
                     ) : (
                         <video
                             controls
                             onClick={() => navigate(`/post/${post?._id}`)}
+                            className="w-full h-auto rounded-md"
                         >
                         <source src={post?.mediaURL} type="video/mp4" />
                       </video>
@@ -97,7 +102,7 @@ const PostCard = ({post}) => {
                             likedByLoggedUser(post,currentUser) ? handleButtonsClick(500,dislikePostHandler,post?._id) : handleButtonsClick(500,likePostHandler,post?._id)
                         }}>
                             {
-                                likedByLoggedUser(post,currentUser) ? <FaHeart/> : <FaRegHeart/>
+                                likedByLoggedUser(post,currentUser) ? <FaHeart className="text-lg text-red hover:scale-125"/> : <FaRegHeart className="text-lg hover:scale-125"/>
                             }
                         </button>
                         {
@@ -109,8 +114,10 @@ const PostCard = ({post}) => {
                         <button onClick={(e) => {
                             e.stopPropagation();
                             setShowCommentModal(true)
-                        }}>
-                            <FaRegComments/>
+                        }}
+                        className="cursor-pointer"
+                        >
+                            <FaRegComments className="text-lg hover:scale-125"/>
                         </button>
                         {
                             post?.comments?.length > 0 && <span>{post?.comments?.length}</span>
@@ -122,9 +129,11 @@ const PostCard = ({post}) => {
                         postAlreadyInBookmarks(post?._id)
                             ? handleButtonsClick(500,removeBookmarkHandler,post?._id)
                             : handleButtonsClick(500,addBookmarkHandler,post?._id)
-                    }}>
+                    }}
+                    className="cursor-pointer p-2 mr-4"
+                    >
                         {
-                            postAlreadyInBookmarks(post?._id) ? <FaBookmark/> : <FaRegBookmark/>
+                            postAlreadyInBookmarks(post?._id) ? <FaBookmark className="text-lg hover:scale-125"/> : <FaRegBookmark className="text-lg hover:scale-125"/>
                         }
                     </button>
                 </div>
