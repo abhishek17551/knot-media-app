@@ -30,7 +30,7 @@ const PostCard = ({post}) => {
     const postedByUser = users.find((user) => user.username === post?.username)
 
     return (
-        <div ref={postModalRef}>
+        <div ref={postModalRef} className='grid grid-cols-[2.25rem_1fr] gap-2 text-sm px-3 py-3 cursor-pointer border-b border-primaryDark dark:border-primaryLight'>
             <div onClick={(e) => {
                 e.stopPropagation();
                 navigate(`/profile/${postedByUser?.username}`)
@@ -38,9 +38,9 @@ const PostCard = ({post}) => {
                 <UserAvatar user={postedByUser}/>
             </div>
 
-            <div>
-                <div>
-                    <div>
+            <div className='flex flex-col gap-2 break-words'>
+                <div className="flex justify-between">
+                    <div className="flex items-start gap-1.5 2xl:items-center">
                         <div onClick={(e) => {
                             e.stopPropagation();
                             navigate(`/profile/${postedByUser?.username}`)
@@ -54,7 +54,7 @@ const PostCard = ({post}) => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="relative">
                         <HiDotsHorizontal
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -90,8 +90,8 @@ const PostCard = ({post}) => {
                     ))
                 }
 
-                <div>
-                    <div>
+                <div className="flex gap-6 -ml-2 mt-1">
+                    <div className="flex justify-center p-2 mr-4">
                         <button onClick={(e) => {
                             e.stopPropagation();
                             likedByLoggedUser(post,currentUser) ? handleButtonsClick(500,dislikePostHandler,post?._id) : handleButtonsClick(500,likePostHandler,post?._id)
@@ -105,7 +105,7 @@ const PostCard = ({post}) => {
                         }
                     </div>
 
-                    <div>
+                    <div className="flex justify-center p-2 mr-4">
                         <button onClick={(e) => {
                             e.stopPropagation();
                             setShowCommentModal(true)
