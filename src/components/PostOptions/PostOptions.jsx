@@ -41,7 +41,7 @@ const PostOptions = ({post, setShowOptions}) => {
                         }}
                         className="flex items-center justify-center cursor-pointer rounded-md text-left py-2 px-4  hover:bg-primaryLight dark:hover:bg-secondaryDark "
                         >
-                            <FaEdit/>
+                            <FaEdit className="mr-2"/>
                             Edit
                         </button>
 
@@ -59,7 +59,7 @@ const PostOptions = ({post, setShowOptions}) => {
                             }}
                             className="flex items-center justify-center cursor-pointer rounded-md text-left text-red py-2 px-4  hover:bg-primaryLight dark:hover:bg-secondaryDark "
                         >
-                            <FaTrash/>
+                            <FaTrash className="mr-2"/>
                             Delete
                         </button>
                     </>
@@ -71,15 +71,16 @@ const PostOptions = ({post, setShowOptions}) => {
                             handleButtonsClick(500,unfollowUserHandler,userToFollow?._id) :
                             handleButtonsClick(500,followUserHandler,userToFollow?._id) 
                         }}
+                        className="flex items-center justify-center cursor-pointer rounded-md text-left text-red py-2 px-4  hover:bg-primaryLight dark:hover:bg-secondaryDark "
                     >
                         {
                             userAlreadyFollowing ? (
                                 <>
-                                    <RiUserUnfollowFill/> Unfollow
+                                    <RiUserUnfollowFill className="mr-2"/> Unfollow
                                 </>
                             ) : (
                                 <>
-                                    <FaUserPlus/> Follow
+                                    <FaUserPlus className="mr-2"/> Follow
                                 </>
                             )
                         }
