@@ -88,7 +88,7 @@ const PostOptions = ({post, setShowOptions}) => {
                 )
             }
 
-            <Modal>
+            <Modal open={showPostModal} onClose={() => setShowPostModal(false)}>
                 <>
                     <PostModal
                         post={post}
