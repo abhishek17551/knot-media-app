@@ -23,16 +23,20 @@ const EditUserModal = ({setEditUserModal}) => {
         setEditUserModal(false)
     }
     return (
-        <div style={styles} className="text-sm p-4 w-80 mx-4 overflow-y-auto border rounded border-darkGrey bg-primaryLighter dark:bg-primaryDark dark:text-primaryLight">
+        <div style={styles} className="text-sm p-4 w-80 mx-4 overflow-y-auto border rounded border-primaryDark  bg-primaryLighter dark:bg-primaryDark dark:text-primaryLight">
             <form onSubmit={editProfileHandler} className="flex flex-col gap-2.5">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
-                        <button type="button" onClick={() => setEditUserModal(false)}>
+                        <button 
+                            type="button" 
+                            onClick={() => setEditUserModal(false)}
+                            className="p-1 mr-3 rounded-full h-min hover:bg-primaryDark hover:text-primaryLight dark:hover:bg-primaryLight dark:hover:text-primaryDark "
+                        >
                             <FaTimes/>
                         </button>
-                        <span>Edit Profile</span>
+                        <span className="text-lg font-semibold">Edit Profile</span>
                     </div>
-                    <PrimaryButton type="submit">
+                    <PrimaryButton type="submit" className="px-4 py-1 rounded-md">
                         Save
                     </PrimaryButton>
                 </div>
@@ -43,7 +47,9 @@ const EditUserModal = ({setEditUserModal}) => {
                             src={
                                 coverImage ? URL.createObjectURL(coverImage) : editInput.backgroundImage ? editInput.backgroundImage : defaultBackgroundImage
                             } 
-                            alt={coverImage ? "UpdatedCoverImage" : "CoverImage"} />
+                            alt={coverImage ? "UpdatedCoverImage" : "CoverImage"} 
+                            className="h-24 w-full object-cover rounded opacity-90 "    
+                        />
                         <div title="Change Cover Photo" className="absolute cursor-pointer rounded-full top-2/4 left-2/4 -translate-x-1/2 -translate-y-2/4 p-2  bg-primaryLight">
                             <input 
                                 type="file"
@@ -52,8 +58,9 @@ const EditUserModal = ({setEditUserModal}) => {
                                     setCoverImage(e.target.files[0]);
                                     setEditInput({...editInput, backgroundImage : URL.createObjectURL(e.target.files[0])})
                                 }} 
+                                className="hidden"
                             />
-                            <FaCamera/>
+                            <FaCamera className="text-md text-primaryDark"/>
                         </div>
                     </div>
                 </label>
@@ -68,6 +75,7 @@ const EditUserModal = ({setEditUserModal}) => {
                                   ? {...currentUser, profileAvatar: avatarImage}  
                                   : currentUser
                             }
+                                className="w-[4.5rem] h-[4.5rem] opacity-90"
                             />
                             <div title="Change Profile Picture" className="absolute cursor-pointer rounded-full top-2/4 left-2/4 -translate-x-1/2 -translate-y-2/4 p-1  bg-primaryLight">
                                 <input 
@@ -77,8 +85,9 @@ const EditUserModal = ({setEditUserModal}) => {
                                         setProfileImage(e.target.files[0]);
                                         setEditInput({...editInput,profileAvatar : URL.createObjectURL(e.target.files[0])})
                                     }}
+                                    className="hidden"
                                 />
-                                <FaCamera/>
+                                <FaCamera className="text-sm text-primaryDark"/>
                             </div>
                         </div>
                     </label>
@@ -93,11 +102,12 @@ const EditUserModal = ({setEditUserModal}) => {
                                     ? {...currentUser, profileAvatar : avatarImage}
                                     : currentUser
                                 }
+                                className="w-[4.5rem] h-[4.5rem] opacity-90"
                             />
                             <div title="Add Avatar" onClick={() => setShowAvatarOptions(true)}
                                 className="absolute cursor-pointer rounded-full top-2/4 left-2/4 -translate-x-1/2 -translate-y-2/4 p-1  bg-primaryLight"
                             >
-                                <BsPersonCircle/>
+                                <BsPersonCircle className="text-sm text-primaryDark" />
                             </div>
                         </div>
                     </label>
@@ -105,48 +115,52 @@ const EditUserModal = ({setEditUserModal}) => {
 
                 <div className="flex flex-col items-center py-1 px-2 rounded border border-[grey] focus-within:border-primary">
                     <label className="w-full">
-                        <div>First Name</div>
+                        <div className="text-xs">First Name</div>
                         <input 
                             type="text"
                             name="firstName"
                             value={editInput.firstName}
                             onChange={(e) => setEditInput({...editInput,firstName: e.target.value})} 
+                            className="text-sm outline-none border-none w-full  bg-primaryLighter dark:bg-primaryDark"
                         />
                     </label>
                 </div>
 
                 <div className="flex flex-col items-center py-1 px-2 rounded border border-[grey] focus-within:border-primary">
                     <label className="w-full">
-                        <div>Last Name</div>
+                        <div className="text-xs">Last Name</div>
                         <input 
                             type="text"
                             name="lastName"
                             value={editInput.lastName}
                             onChange={(e) => setEditInput({...editInput,lastName: e.target.value})} 
+                            className="text-sm outline-none border-none w-full  bg-primaryLighter dark:bg-primaryDark"
                         />
                     </label>
                 </div>
 
                 <div className="flex flex-col items-center py-1 px-2 rounded border border-[grey] focus-within:border-primary">
                     <label className="w-full">
-                        <div>Bio</div>
+                        <div className="text-xs">Bio</div>
                         <input 
                             type="text"
                             name="bio"
                             value={editInput.bio}
                             onChange={(e) => setEditInput({...editInput,bio: e.target.value})} 
+                            className="text-sm outline-none border-none w-full  bg-primaryLighter dark:bg-primaryDark"
                         />
                     </label>
                 </div>
 
                 <div className="flex flex-col items-center py-1 px-2 rounded border border-[grey] focus-within:border-primary">
                     <label className="w-full">
-                        <div>Website</div>
+                        <div className="text-xs">Website</div>
                         <input 
                             type="text"
                             name="website"
                             value={editInput.website}
                             onChange={(e) => setEditInput({...editInput,website: e.target.value})} 
+                            className="text-sm outline-none border-none w-full  bg-primaryLighter dark:bg-primaryDark"
                         />
                     </label>
                 </div>
@@ -158,10 +172,11 @@ const EditUserModal = ({setEditUserModal}) => {
                         <button
                             type="button"
                             onClick={() => setShowAvatarOptions(false)}
+                            className="text-sm h-min rounded-full p-0.5 mr-3 hover:bg-primaryDark hover:text-primaryLight dark:hover:bg-primaryLight dark:hover:text-primaryDark "
                         >
-                            <FaTimes/>
+                            <FaTimes className="text-sm"/>
                         </button>
-                        <span>Choose Your Avatar</span>
+                        <span className="font-semibold">Choose Your Avatar</span>
                     </div>
                     <div className="flex flex-wrap items-center justify-center gap-2">
                         {
@@ -173,12 +188,13 @@ const EditUserModal = ({setEditUserModal}) => {
                                         setEditInput({...editInput, profileAvatar : avatar});
                                         setShowAvatarOptions(false)
                                     }}
+                                    className="user-avatar cursor-pointer"
                                 >
                                     <img
                                         src={avatar}
                                         alt={`Avatar${index}`}
+                                        className="h-14 w-14 rounded-full object-cover hover:opacity-80"
                                     />
-
                                 </span>
                             ))
                         }
