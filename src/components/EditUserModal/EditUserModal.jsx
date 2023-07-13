@@ -23,10 +23,10 @@ const EditUserModal = ({setEditUserModal}) => {
         setEditUserModal(false)
     }
     return (
-        <div style={styles}>
-            <form onSubmit={editProfileHandler}>
-                <div>
-                    <div>
+        <div style={styles} className="text-sm p-4 w-80 mx-4 overflow-y-auto border rounded border-darkGrey bg-primaryLighter dark:bg-primaryDark dark:text-primaryLight">
+            <form onSubmit={editProfileHandler} className="flex flex-col gap-2.5">
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center">
                         <button type="button" onClick={() => setEditUserModal(false)}>
                             <FaTimes/>
                         </button>
@@ -37,14 +37,14 @@ const EditUserModal = ({setEditUserModal}) => {
                     </PrimaryButton>
                 </div>
 
-                <label htmlFor="">
-                    <div>
+                <label className="w-full">
+                    <div className="w-full relative">
                         <img 
                             src={
                                 coverImage ? URL.createObjectURL(coverImage) : editInput.backgroundImage ? editInput.backgroundImage : defaultBackgroundImage
                             } 
                             alt={coverImage ? "UpdatedCoverImage" : "CoverImage"} />
-                        <div title="Change Cover Photo">
+                        <div title="Change Cover Photo" className="absolute cursor-pointer rounded-full top-2/4 left-2/4 -translate-x-1/2 -translate-y-2/4 p-2  bg-primaryLight">
                             <input 
                                 type="file"
                                 accept="image/*"
@@ -58,9 +58,9 @@ const EditUserModal = ({setEditUserModal}) => {
                     </div>
                 </label>
 
-                <div>
-                    <label htmlFor="">
-                        <div>
+                <div className="flex wrap mx-6">
+                    <label className="cursor-pointer w-max mx-auto">
+                        <div className="relative">
                             <UserAvatar
                                 user={profileImage ? {
                                     ...currentUser, profileAvatar : URL.createObjectURL(profileImage)
@@ -69,7 +69,7 @@ const EditUserModal = ({setEditUserModal}) => {
                                   : currentUser
                             }
                             />
-                            <div title="Change Profile Picture">
+                            <div title="Change Profile Picture" className="absolute cursor-pointer rounded-full top-2/4 left-2/4 -translate-x-1/2 -translate-y-2/4 p-1  bg-primaryLight">
                                 <input 
                                     type="file" 
                                     accept="image/*"
@@ -83,8 +83,8 @@ const EditUserModal = ({setEditUserModal}) => {
                         </div>
                     </label>
 
-                    <label htmlFor="">
-                        <div>
+                    <label className="w-max cursor-pointer mx-auto">
+                        <div className="relative">
                             <UserAvatar
                                 user={
                                     profileImage ? {
@@ -94,15 +94,17 @@ const EditUserModal = ({setEditUserModal}) => {
                                     : currentUser
                                 }
                             />
-                            <div title="Add Avatar" onClick={() => setShowAvatarOptions(true)}>
+                            <div title="Add Avatar" onClick={() => setShowAvatarOptions(true)}
+                                className="absolute cursor-pointer rounded-full top-2/4 left-2/4 -translate-x-1/2 -translate-y-2/4 p-1  bg-primaryLight"
+                            >
                                 <BsPersonCircle/>
                             </div>
                         </div>
                     </label>
                 </div>
 
-                <div>
-                    <label htmlFor="">
+                <div className="flex flex-col items-center py-1 px-2 rounded border border-[grey] focus-within:border-primary">
+                    <label className="w-full">
                         <div>First Name</div>
                         <input 
                             type="text"
@@ -113,8 +115,8 @@ const EditUserModal = ({setEditUserModal}) => {
                     </label>
                 </div>
 
-                <div>
-                    <label htmlFor="">
+                <div className="flex flex-col items-center py-1 px-2 rounded border border-[grey] focus-within:border-primary">
+                    <label className="w-full">
                         <div>Last Name</div>
                         <input 
                             type="text"
@@ -125,8 +127,8 @@ const EditUserModal = ({setEditUserModal}) => {
                     </label>
                 </div>
 
-                <div>
-                    <label htmlFor="">
+                <div className="flex flex-col items-center py-1 px-2 rounded border border-[grey] focus-within:border-primary">
+                    <label className="w-full">
                         <div>Bio</div>
                         <input 
                             type="text"
@@ -137,8 +139,8 @@ const EditUserModal = ({setEditUserModal}) => {
                     </label>
                 </div>
 
-                <div>
-                    <label htmlFor="">
+                <div className="flex flex-col items-center py-1 px-2 rounded border border-[grey] focus-within:border-primary">
+                    <label className="w-full">
                         <div>Website</div>
                         <input 
                             type="text"
@@ -151,8 +153,8 @@ const EditUserModal = ({setEditUserModal}) => {
             </form>
 
             <Modal open={showAvatarOptions} onClose={() => setShowAvatarOptions(false)}>
-                <div style={styles}>
-                    <div>
+                <div style={styles} className="flex flex-col gap-4 p-4 w-60 mx-4 rounded-md overflow-y-auto text-sm border border-primaryDark bg-primaryLighter dark:bg-primaryDark dark:text-primaryLight">
+                    <div className="flex items-center">
                         <button
                             type="button"
                             onClick={() => setShowAvatarOptions(false)}
@@ -161,7 +163,7 @@ const EditUserModal = ({setEditUserModal}) => {
                         </button>
                         <span>Choose Your Avatar</span>
                     </div>
-                    <div>
+                    <div className="flex flex-wrap items-center justify-center gap-2">
                         {
                             avatarImages.map((avatar, index) => (
                                 <span
