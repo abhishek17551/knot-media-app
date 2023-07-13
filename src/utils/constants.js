@@ -36,3 +36,20 @@ export const guestUserLoginDetails = {
     username : "Viraj Anand",
     password : "virajanand.296"
 }
+
+export const logoImage = "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689249785/socialMedia/logo-image_xzr5s6.png"
+
+export const defaultBackgroundImage = "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689235123/samples/stable-diffusion-xl_qywswa.jpg"
+
+export const altProfileImage = "https://res.cloudinary.com/dd1ynbj52/image/upload/v1688409795/290d3a27e02ebce5e121c624b276e4d4_vl6eik.jpg"
+
+export const errorImage = "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689249706/404-error_q57dgt.jpg"
+
+export const avatarImages = [
+    "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689248969/socialMedia/profile-pic-3_jja7xd.jpg",
+    "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689248969/socialMedia/profile-pic-4_ojblhb.jpg",
+    "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689248969/socialMedia/profile-pic-1_xurao7.jpg",
+    "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689248969/socialMedia/profile-pic-2_vsj3xh.jpg",
+    "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689249218/socialMedia/profile-pic-5_gaqahl.jpg"
+]
+
