@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
 import { useAuth } from "../../contexts/authContext"
 import { usePosts } from "../../contexts/postContext";
 import { useTheme } from "../../contexts/themeContext"
@@ -8,7 +10,6 @@ import { UserAvatar } from "../UserAvatar/UserAvatar";
 import {  MdCancel, MdInsertEmoticon, MdOutlineAddPhotoAlternate } from '../../utils/icons'
 import { PrimaryButton, SecondaryButton } from "../Button/Button";
 import { Modal } from "@mui/material";
-import { Picker } from "emoji-mart";
 import { styles } from "../../utils/constants";
 
 const PostModal = ({post, setShowPostModal, setShowOptions}) => {
