@@ -46,9 +46,9 @@ const NewPost = () => {
     }
 
     return (
-        <div>
+        <div className='grid grid-cols-[2.25rem_1fr] gap-2 items-start text-sm px-4 py-3 cursor-text  border-b border-primaryDark dark:border-primaryLight'>
             <UserAvatar user={currentUser}/>
-            <form onSubmit={submitPostHandler}>
+            <form onSubmit={submitPostHandler} className="flex flex-col gap-2">
                 <div>
                     <textarea
                         value={content}
@@ -85,7 +85,7 @@ const NewPost = () => {
                     }
                 </div>
 
-                <div>
+                <div className="ml-auto flex items-center gap-4 mt-1.5">
                     <label>
                         <input 
                             type="file"
