@@ -47,34 +47,37 @@ const NewPost = () => {
 
     return (
         <div className='grid grid-cols-[2.25rem_1fr] gap-2 items-start text-sm px-4 py-3 cursor-text  border-b border-primaryDark dark:border-primaryLight'>
-            <UserAvatar user={currentUser}/>
+            <UserAvatar user={currentUser} className="h-9 w-9"/>
             <form onSubmit={submitPostHandler} className="flex flex-col gap-2">
-                <div>
+                <div className="w-full outline-none h-auto mt-1.5 ">
                     <textarea
                         value={content}
                         ref={newPostRef}
                         placeholder="What are your thoughts brewing???"
                         rows={2}
                         onChange={(e) => setContent(e.target.value)}
+                        className="w-full outline-none resize-none h-auto dark:bg-primaryBlack"
                     />
                     {
                         media ? (
-                            <div>
+                            <div className="relative">
                         {
                             media?.type?.includes("video") ? (
-                            <video controls>
+                            <video controls className="w-full h-auto rounded-md">
                                 <source src={URL.createObjectURL(media)} type="video/mp4"/>
                             </video>
                         ) : (
                             <img 
                                 src={URL.createObjectURL(media)}
                                 alt="newPostPicture" 
+                                className="w-full h-auto rounded-md"
                             />
                         )
                     }
                     <button
                         type="button"
                         onClick={() => setMedia(null)}
+                        className="absolute text-lg top-1.5 left-2"
                     >
                         <MdCancel/>
                     </button>
@@ -86,20 +89,22 @@ const NewPost = () => {
                 </div>
 
                 <div className="ml-auto flex items-center gap-4 mt-1.5">
-                    <label>
+                    <label className="cursor-pointer">
                         <input 
                             type="file"
                             accept="image/*, video/*"
                             onChange={(e) => setMedia(e.target.files[0])}
+                            className="hidden"
                         />
-                        <MdOutlineAddPhotoAlternate title="Add Photo/GIF/Video"/>
+                        <MdOutlineAddPhotoAlternate title="Add Photo/GIF/Video" className="text-xl scale-110 hover:scale-125"/>
                     </label>
-                    <label onClick={() => setShowEmojiPicker((prev) => !prev)}>
-                        <MdInsertEmoticon title="Add Emoji"/>
+                    <label onClick={() => setShowEmojiPicker((prev) => !prev)} className="cursor-pointer">
+                        <MdInsertEmoticon title="Add Emoji" className="text-xl scale-110 hover:scale-125"/>
                     </label>
                     <PrimaryButton
                         type="submit"
                         disabled={!content.trim() && !media}
+                        className="py-1 px-4 rounded-md disabled:opacity-80 disabled:cursor-not-allowed"
                     >
                         Post
                     </PrimaryButton>
@@ -120,7 +125,6 @@ const NewPost = () => {
                             setContent(content + emoji.native)
                             setShowEmojiPicker(false)
                         }}
-
                     />
                 </div>
             </Modal>
