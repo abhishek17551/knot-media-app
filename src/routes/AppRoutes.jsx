@@ -1,7 +1,8 @@
 const { Routes, Route } = require("react-router-dom")
 const { ResetScroll } = require("../components/ResetScroll/ResetScroll")
 const { PrivateRoutes } = require("./PrivateRoutes")
-const { Home, Explore, Bookmarks, UserProfile, SinglePost, PageNotFound } = require("../pages")
+const { Home, Explore, Bookmarks, UserProfile, SinglePost, PageNotFound, Login, Signup } = require("../pages")
+const { Authentication } = require("../pages/Authentication/Authentication")
 
 const AppRoutes = () => {
     return (
@@ -13,7 +14,11 @@ const AppRoutes = () => {
                     <Route path="/bookmarks" element={<Bookmarks/>}/>
                     <Route path="/profile/:username" element={<UserProfile/>}/>
                     <Route path="/post/:postId" element={<SinglePost/>}/>
-                    <Route path="/*" element={<PageNotFound/>}/>
+                </Route>
+                <Route path="/*" element={<PageNotFound/>}/>
+                <Route path="/auth" element={<Authentication/>}>
+                    <Route path="login" element={<Login/>}/>
+                    <Route path="signup" element={<Signup/>}/>
                 </Route>
             </Routes>
         </ResetScroll>

@@ -39,6 +39,8 @@ export const guestUserLoginDetails = {
 
 export const logoImage = "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689249785/socialMedia/logo-image_xzr5s6.png"
 
+export const loginHeroImage = "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689605616/login-hero-image_yakrea.jpg"
+
 export const defaultBackgroundImage = "https://res.cloudinary.com/dd1ynbj52/image/upload/v1689235123/samples/stable-diffusion-xl_qywswa.jpg"
 
 export const altProfileImage = "https://res.cloudinary.com/dd1ynbj52/image/upload/v1688409795/290d3a27e02ebce5e121c624b276e4d4_vl6eik.jpg"
