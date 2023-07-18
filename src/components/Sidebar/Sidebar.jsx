@@ -6,6 +6,8 @@ import { UserAvatar } from "../UserAvatar/UserAvatar";
 import { PrimaryButton } from "../Button/Button";
 import { Modal } from "@mui/material";
 import { SettingsModal } from "../SettingsModal/SettingsModal";
+import { logoImage } from "../../utils/constants";
+import { PostModal } from "../PostModal/PostModal";
 
 const Sidebar = () => {
     const {currentUser} = useAuth();
@@ -22,7 +24,7 @@ const Sidebar = () => {
             <ul className="flex justify-around items-center px-2 py-1 tracking-wide grow sm:items-start  sm:justify-start  sm:py-4 sm:flex-col gap-3 sm:gap-2 ">
                 <li className="hidden sm:pb-2 sm:px-1 sm:block">
                     <Link to="/" className="flex items-center">
-                        {/* logo image here */}
+                        <img src={logoImage} alt="knot-logo" className="h-12 w-12 mr-2"/>
                         <span className="font-semibold hidden text-2xl lg:inline">Knot-Media</span>
                     </Link>
                 </li>
@@ -99,7 +101,7 @@ const Sidebar = () => {
                open={showPostModal} 
                onClose={() => setShowPostModal(false)} 
             >
-                {/* PostModal here */}
+                <PostModal setShowPostModal={setShowPostModal}/>
             </Modal>
 
             <Modal
