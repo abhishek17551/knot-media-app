@@ -1,3 +1,5 @@
+import { altProfileImage } from "../../utils/constants";
+
 const UserAvatar = (props) => {
     const {className} = props;
 
@@ -16,8 +18,8 @@ const UserAvatar = (props) => {
                     />
                 ) : (
                     <img
-                        src='altProfileImage'
-                        alt='altProfileImage'
+                        src={altProfileImage}
+                        alt='AltProfileImage'
                         className={imageClass}
                     />
                 )

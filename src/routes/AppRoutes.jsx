@@ -24,3 +24,5 @@ const AppRoutes = () => {
         </ResetScroll>
     )
 }
+
+export {AppRoutes}
