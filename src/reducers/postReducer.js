@@ -9,7 +9,7 @@ export const initialPostData = {
 export const initialPostState = {
     posts : [],
     postData : initialPostData,
-    post : {}.initialPostData,
+    post : {},
     filterType : 'Latest',
     page : 1,
     isNextPostLoading : false,
