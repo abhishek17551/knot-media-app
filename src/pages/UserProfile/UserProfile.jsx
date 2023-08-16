@@ -35,19 +35,19 @@ const UserProfile = () => {
 
 
   return (
-    <div>
+    <div className='grid sm:grid-cols-[5rem_1fr] lg:grid-cols-[12rem_1fr] xl:grid-cols-[13rem_1fr_20rem] w-[100%] lg:w-[80%] mb-16 sm:m-auto transition-all duration-500 dark:bg-primaryBlack dark:text-primaryLight'>
       <Sidebar/>
-      <div>
+      <div className='sm:border-x border-primaryDark dark:border-primaryLight'>
         {
           loading ? (
             <Loader/>
           ) : (
             <>
-              <h1>
-                <FaArrowLeft onClick={() => navigate(-1)}/>
+              <h1 className='flex items-center sticky top-0 p-3  backdrop-blur-md z-20 border-b border-primaryDark dark:border-primaryLight'>
+                <FaArrowLeft onClick={() => navigate(-1)} className="cursor-pointer mr-5 mx-1"/>
                 <span>
-                  <p>{user.firstName + " " + user.lastName}</p>
-                  <p>{userPosts?.length} posts</p>
+                  <p className="font-bold tracking-wide">{user.firstName + " " + user.lastName}</p>
+                  <p className="text-sm text-[grey]">{userPosts?.length} posts</p>
                 </span>
               </h1>
 
@@ -59,14 +59,14 @@ const UserProfile = () => {
                   loading ? (
                     <Loader/>
                   ) : !user ? (
-                    <p>User not found.</p>
+                    <p className="text-center p-4 font-bold">User not found.</p>
                   ) : (
                     userPosts?.length ? (
                       SortPosts(userPosts,"Latest")?.map((post) => (
                         <PostCard key={post._id} post={post}/>
                       ))
                     ) : (
-                      <p>No posts to display.</p>
+                      <p className="text-center p-4 font-bold">No posts to display.</p>
                     )
                   )
                 }
@@ -76,7 +76,7 @@ const UserProfile = () => {
         }
       </div>
 
-      <div>
+      <div className="hidden xl:block">
         <SearchBar/>
         <SuggestedUsers/>
       </div>
