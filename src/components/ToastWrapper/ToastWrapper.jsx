@@ -2,7 +2,7 @@ const { Toaster } = require("react-hot-toast")
 
 const ToastWrapper = () => {
     return (
-        <>
+        
             <Toaster
                 position="top-center"
                 reverseOrder={false}
@@ -12,8 +12,8 @@ const ToastWrapper = () => {
                     fontSize : '1.15rem',
                 }}
             />
-        </>
-    )
-}
+        
+    );
+};
 
 export {ToastWrapper}

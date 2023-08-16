@@ -160,7 +160,7 @@ export const PostProvider = ({children}) => {
                 data: { posts }, 
             } = await dislikePostService(postId,token);
             if(status === 201) {
-                postDispatch({type: DISLIKE_POST,, payload: posts})
+                postDispatch({type: DISLIKE_POST, payload: posts})
                 toast.success("Post disliked")
             }
         }
